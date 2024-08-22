@@ -1,0 +1,48 @@
+public class RomanDescendingPattern {
+    public static void main(String[] args) {
+        int number = 5; // Specify the total number of lines
+        printPattern(number);
+    }
+
+    // Method to print the Roman numeral pattern
+    public static void printPattern(int number) {
+        if (number <= 0) {
+            System.out.println("Input must be a positive integer.");
+            return;
+        }
+
+        // Determine the middle index
+        int middle = (number + 1) / 2; // Middle index of the pattern
+
+        // Upper part (including the middle)
+        for (int i = middle; i >= 1; i--) {
+            printWithSpaces(i, middle);
+        }
+
+        // Lower part
+        for (int i = 2; i <= middle; i++) {
+            printWithSpaces(i, middle);
+        }
+    }
+
+    // Function to print Roman numeral with leading spaces
+    public static void printWithSpaces(int num, int max) {
+        // Print leading spaces
+        for (int j = 1; j <= max - num; j++) {
+            System.out.print(" ");
+        }
+        // Print the Roman numeral
+        System.out.println(convertToRoman(num));
+    }
+
+    // Function to convert an integer to a Roman numeral
+    public static String convertToRoman(int num) {
+        String[] units = {"", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"};
+
+        if (num < 1 || num > 9) {
+            return "Invalid input";
+        }
+
+        return units[num];
+    }
+}
