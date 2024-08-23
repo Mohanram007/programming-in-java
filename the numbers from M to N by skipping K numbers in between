@@ -1,0 +1,16 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter M:");
+        int m = scanner.nextInt();
+        System.out.println("Enter N:");
+        int n = scanner.nextInt();
+        System.out.println("Enter K:");
+        int k = scanner.nextInt();
+        for (int i = m; i <= n; i += k + 1) {
+            System.out.print(i + " ");
+        }
+    }
+}
