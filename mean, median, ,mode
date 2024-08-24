@@ -1,0 +1,46 @@
+import java.util.Arrays;
+
+public class Statistics {
+  public static void main(String[] args) {
+    int[] data = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+    System.out.println("Mean: " + calculateMean(data));
+    System.out.println("Median: " + calculateMedian(data));
+    System.out.println("Mode: " + calculateMode(data));
+  }
+
+  public static double calculateMean(int[] data) {
+    int sum = 0;
+    for (int i : data) {
+      sum += i;
+    }
+    return (double) sum / data.length;
+  }
+
+  public static double calculateMedian(int[] data) {
+    Arrays.sort(data);
+    int middleIndex = data.length / 2;
+    if (data.length % 2 == 0) {
+      return (data[middleIndex - 1] + data[middleIndex]) / 2.0;
+    } else {
+      return data[middleIndex];
+    }
+  }
+
+  public static int calculateMode(int[] data) {
+    int maxCount = 0;
+    int mode = data[0];
+    for (int i : data) {
+      int count = 0;
+      for (int j : data) {
+        if (i == j) {
+          count++;
+        }
+      }
+      if (count > maxCount) {
+        maxCount = count;
+        mode = i;
+      }
+    }
+    return mode;
+  }
+}
