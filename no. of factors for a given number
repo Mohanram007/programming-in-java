@@ -1,0 +1,20 @@
+public class Factors {
+  public static void main(String[] args) {
+    int num = 24;
+    int count = countFactors(num);
+    System.out.println("Number of factors for " + num + ": " + count);
+  }
+
+  public static int countFactors(int num) {
+    int count = 0;
+    for (int i = 1; i <= Math.sqrt(num); i++) {
+      if (num % i == 0) {
+        count++;
+        if (i * i != num) {
+          count++;
+        }
+      }
+    }
+    return count;
+  }
+}
