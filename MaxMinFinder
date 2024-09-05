@@ -1,0 +1,33 @@
+import java.util.Arrays;
+
+public class MaxMinFinder {
+    public static void main(String[] args) {
+        int[] array = {14, 16, 87, 36, 25, 89, 34};
+        int M = 1;
+        int N = 3;
+
+        findMaxMin(array, M, N);
+    }
+
+    public static void findMaxMin(int[] array, int M, int N) {
+        // Sort the array in ascending order
+        Arrays.sort(array);
+
+        // Find the Mth maximum number
+        int maxIndex = array.length - M;
+        int maxNum = array[maxIndex];
+
+        // Find the Nth minimum number
+        int minNum = array[N - 1];
+
+        // Calculate the sum and difference
+        int sum = maxNum + minNum;
+        int difference = maxNum - minNum;
+
+        // Print the results
+        System.out.println(M + "stMaximum Number = " + maxNum);
+        System.out.println(N + "thMinimum Number = " + minNum);
+        System.out.println("Sum = " + sum);
+        System.out.println("Difference = " + difference);
+    }
+}
