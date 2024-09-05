@@ -1,0 +1,65 @@
+import java.util.Scanner;
+
+public class PalindromeChecker {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Enter your choice:");
+        System.out.println("1. Check if a string is a palindrome");
+        System.out.println("2. Check if a number is a palindrome");
+        int choice = scanner.nextInt();
+        scanner.nextLine(); // consume newline left-over
+
+        switch (choice) {
+            case 1:
+                System.out.print("Enter a string: ");
+                String str = scanner.nextLine();
+                if (isStringPalindrome(str)) {
+                    System.out.println("Palindrome");
+                } else {
+                    System.out.println("Not a palindrome");
+                }
+                break;
+            case 2:
+                System.out.print("Enter a number: ");
+                String numStr = scanner.nextLine();
+                if (isNumberPalindrome(numStr)) {
+                    System.out.println("Palindrome");
+                } else {
+                    System.out.println("Not a palindrome");
+                }
+                break;
+            default:
+                System.out.println("Invalid choice");
+        }
+    }
+
+    public static boolean isStringPalindrome(String str) {
+        int left = 0;
+        int right = str.length() - 1;
+
+        while (left < right) {
+            if (str.charAt(left) != str.charAt(right)) {
+                return false;
+            }
+            left++;
+            right--;
+        }
+        return true;
+    }
+
+    public static boolean isNumberPalindrome(String numStr) {
+        numStr = numStr.replaceAll("\\.", ""); // remove decimal point
+        int left = 0;
+        int right = numStr.length() - 1;
+
+        while (left < right) {
+            if (numStr.charAt(left) != numStr.charAt(right)) {
+                return false;
+            }
+            left++;
+            right--;
+        }
+        return true;
+    }
+}
